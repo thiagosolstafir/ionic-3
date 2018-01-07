@@ -10,7 +10,7 @@ import { IntroPage } from '../pages/intro/intro';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = IntroPage;
+  rootPage:any = TabsPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -20,4 +20,24 @@ export class MyApp {
       splashScreen.hide();
     });
   }
+}
+
+export class AppComponent {
+
+  formatsDateTest: string[] = [
+    'dd/MM/yyyy',
+    'dd/MM/yyyy hh:mm:ss',
+    'dd-MM-yyyy',
+    'dd-MM-yyyy HH:mm:ss',
+    'MM/dd/yyyy',
+    'MM/dd/yyyy hh:mm:ss',
+    'yyyy/MM/dd',
+    'yyyy/MM/dd HH:mm:ss',
+    'dd/MM/yy',
+    'dd/MM/yy hh:mm:ss',
+    ];
+
+  dateNow : Date = new Date();
+  dateNowISO = this.dateNow.toISOString();
+  dateNowMilliseconds = this.dateNow.getTime();
 }
